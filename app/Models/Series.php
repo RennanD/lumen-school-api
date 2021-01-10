@@ -4,25 +4,35 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Series extends Model
 {
 
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name', 'email',
-    ];
+  /**
+  * The attributes that are mass assignable.
+  *
+  * @var array
+  */
+  protected $fillable = [
+    'name', 'status'
+  ];
 
-    /**
-     * The attributes excluded from the model's JSON form.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password',
-    ];
+  /**
+  *
+  * @var array
+  */
+
+  protected $casts = [
+    'status' => 'string'
+  ];
+
+  /**
+  * The model's default values for attributes.
+  *
+  * @var array
+  */
+  protected $attributes = [
+    'status' => 'active'
+  ];
+
 }
