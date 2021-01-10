@@ -16,8 +16,8 @@ class CreateSeries extends Migration
     {
         Schema::create('series', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255);
-            $table->string('status', 40);
+            $table->string('name');
+            $table->string('status');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
