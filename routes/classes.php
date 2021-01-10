@@ -10,5 +10,7 @@
 
 $router->group(['prefix' => 'classes'], function () use ($router) {
 
-    $router->post('/', 'ClassesController@create');
+  $router->get('/', 'ClassesController@index');
+  $router->post('/', 'ClassesController@create');
+
 });

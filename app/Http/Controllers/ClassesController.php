@@ -2,11 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\CreateClassesService;
 use Illuminate\Http\Request;
+
+use App\Services\CreateClassesService;
+use App\Services\ListClassesService;
 
 class ClassesController extends Controller
 {
+
+  public function index() {
+    $listClasses = new ListClassesService();
+
+    $classes = $listClasses->run();
+
+    return response()->json($classes);
+  }
 
   public function create(Request $request) {
     $createClasses = new CreateClassesService();
