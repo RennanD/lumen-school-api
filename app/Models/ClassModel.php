@@ -36,4 +36,8 @@ class ClassModel extends Model
     'status' => 'active'
   ];
 
+  public function series() {
+    return $this->belongsTo(Series::class, 'series_id', 'id');
+  }
+
 }

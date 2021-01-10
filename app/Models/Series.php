@@ -35,4 +35,8 @@ class Series extends Model
     'status' => 'active'
   ];
 
+  public function classes() {
+    return $this->hasMany(ClassModel::class, 'series_id', 'id');
+  }
+
 }
