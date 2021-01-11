@@ -7,8 +7,7 @@ use App\Services\ListSeriesService;
 use App\Services\ShowSeriesService;
 use Illuminate\Http\Request;
 
-class SeriesController extends Controller
-{
+class SeriesController extends Controller {
 
 
 

@@ -8,8 +8,7 @@ use App\Services\CreateClassesService;
 use App\Services\ListClassesService;
 use App\Services\ShowClassService;
 
-class ClassesController extends Controller
-{
+class ClassesController extends Controller {
 
   public function index() {
     $listClasses = new ListClassesService();

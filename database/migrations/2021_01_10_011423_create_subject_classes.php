@@ -18,7 +18,7 @@ class CreateSubjectClasses extends Migration
             $table->id();
 
             $table->unsignedBigInteger('subejct_id')->nullable();
-            $table->foreign('subejct_id')->references('id')->on('subjects');
+            $table->foreign('subject_id')->references('id')->on('subjects');
 
             $table->unsignedBigInteger('class_id')->nullable();
             $table->foreign('class_id')->references('id')->on('classes');
