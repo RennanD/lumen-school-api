@@ -20,10 +20,11 @@ class ShowSeriesService {
       throw new Exception('The series not found', 400);
     }
 
-    return [
-      "series"=> $checkSeries,
-      "classes" => $checkSeries->classes()->get()
-    ];
+    foreach($checkSeries->classes()->get() AS $key=>$value){
+        $checkSeries->classes->$key = $value;
+    }
+
+    return $checkSeries;
 
 
   }

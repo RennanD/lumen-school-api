@@ -17,7 +17,7 @@ class CreateSubjectClasses extends Migration
         Schema::create('subject_classes', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('subejct_id')->nullable();
+            $table->unsignedBigInteger('subject_id')->nullable();
             $table->foreign('subject_id')->references('id')->on('subjects');
 
             $table->unsignedBigInteger('class_id')->nullable();

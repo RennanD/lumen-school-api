@@ -13,7 +13,7 @@ class ListClassesService {
   */
   public function run() {
     $classesRepository = new ClassModel();
-    $classes = $classesRepository->all();
+    $classes = $classesRepository->orderBy('id', 'DESC')->get();
 
     return $classes;
   }

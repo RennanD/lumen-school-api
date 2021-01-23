@@ -20,11 +20,12 @@ class ShowClassService {
       throw new Exception('The class not found', 400);
     }
 
-    return [
-      "class"=> $checkclass,
-      "series" => $checkclass->series()->first()
-    ];
 
+    foreach($checkclass->series()->first() AS $key=>$value){
+        $checkclass->series->$key = $value;
+    }
+
+    return $checkclass;
 
   }
 }

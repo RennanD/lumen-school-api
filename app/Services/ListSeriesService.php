@@ -13,7 +13,7 @@ class ListSeriesService {
   */
   public function run() {
     $seriesRepository = new Series();
-    $series = $seriesRepository->all();
+    $series = $seriesRepository->orderBy('id', 'DESC')->get();
 
     return $series;
   }
