@@ -15,6 +15,15 @@ class ListClassesService {
     $classesRepository = new ClassModel();
     $classes = $classesRepository->all();
 
-    return $classes;
+    $serialiazedClasses = [];
+
+    foreach($classes as $classItem) {
+      array_push($serialiazedClasses, [
+        "classes" => $classItem,
+        "series" =>$classItem->series()->first()
+      ]);
+    }
+
+    return $serialiazedClasses;
   }
 }
