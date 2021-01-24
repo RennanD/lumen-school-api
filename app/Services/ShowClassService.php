@@ -25,6 +25,10 @@ class ShowClassService {
         $checkclass->series->$key = $value;
     }
 
+    foreach($checkclass->subjects()->get() AS $key=>$value){
+      $checkclass->subjects->$key = $value;
+  }
+
     return $checkclass;
 
   }

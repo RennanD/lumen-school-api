@@ -35,4 +35,13 @@ class Subject extends Model
     'status' => 'active'
   ];
 
+  public function classes() {
+    return $this->belongsToMany(
+      ClassModel::class,
+      'subject_classes',
+      'subject_id',
+      'class_id'
+    );
+  }
+
 }

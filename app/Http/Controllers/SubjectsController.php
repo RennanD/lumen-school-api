@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Services\CreateSubjectsService;
 use App\Services\ListSubjectsService;
+use App\Services\ShowSubjectService;
 
 class SubjectsController extends Controller {
 
@@ -15,6 +16,20 @@ class SubjectsController extends Controller {
     $subjects = $listSubjects->run();
 
     return response()->json($subjects);
+  }
+
+  public function show(int $subject_id) {
+    $showSubject = new ShowSubjectService();
+
+    try {
+      $subject = $showSubject->run($subject_id);
+
+      return response()->json($subject);
+    } catch (\Throwable $error) {
+      return response()->json([
+        "error" => $error->getMessage()
+      ], 400);
+    }
   }
 
   public function create(Request $request) {

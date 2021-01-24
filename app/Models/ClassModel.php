@@ -40,4 +40,13 @@ class ClassModel extends Model
     return $this->belongsTo(Series::class, 'series_id', 'id');
   }
 
+  public function subjects() {
+    return $this->belongsToMany(
+      ClassModel::class,
+      'subject_classes',
+      'class_id',
+      'subject_id'
+    );
+  }
+
 }
