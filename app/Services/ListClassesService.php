@@ -6,8 +6,6 @@ use App\Models\ClassModel;
 
 class ListClassesService {
 
-
-
   /**
   * @return array;
   */
@@ -18,10 +16,11 @@ class ListClassesService {
     $serialiazedClasses = [];
 
     foreach($classes as $classItem) {
-      array_push($serialiazedClasses, [
-        "classes" => $classItem,
-        "series" =>$classItem->series()->first()
-      ]);
+      foreach($classItem->series()->first() as $key => $value) {
+        $classItem->series->$key = $value;
+      }
+
+      array_push($serialiazedClasses, $classItem);
     }
 
     return $serialiazedClasses;

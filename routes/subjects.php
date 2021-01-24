@@ -10,5 +10,6 @@
 
 $router->group(['prefix' => 'subjects'], function () use ($router) {
 
+    $router->get('/', 'SubjectsController@index');
     $router->post('/', 'SubjectsController@create');
 });

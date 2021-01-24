@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class SubjectClasses extends Model
 {
 
-
   /**
   * The attributes that are mass assignable.
   *
@@ -34,5 +33,23 @@ class SubjectClasses extends Model
   protected $attributes = [
     'status' => 'active'
   ];
+
+  public function class() {
+    return $this->belongsToMany(
+      ClassModel::class,
+      'subject_classes',
+      'class_id',
+      'subject_id'
+    );
+  }
+
+  public function subject() {
+    return $this->hasMany(
+      Subject::class,
+      'subject_classes',
+      'subjetc_id',
+      'class_id'
+    );
+  }
 
 }
