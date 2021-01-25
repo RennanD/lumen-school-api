@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Subject extends Model
 {
 
-
   /**
   * The attributes that are mass assignable.
   *
@@ -43,5 +42,6 @@ class Subject extends Model
       'class_id'
     );
   }
+
 
 }

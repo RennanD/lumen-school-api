@@ -13,7 +13,6 @@ class ListSubjectsService {
     $subjectsRepository = new Subject();
     $subjects = $subjectsRepository->orderBy('id', 'DESC')->get();
 
-
     return $subjects;
   }
 }
