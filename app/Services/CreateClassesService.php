@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\ClassModel;
 use App\Models\Series;
+use App\Models\SubjectClasses;
 use Exception;
 
 class CreateClassesService {
@@ -14,6 +15,7 @@ class CreateClassesService {
   public function run(array $data) {
     $classesRepository = new ClassModel();
     $seriesRespository = new Series();
+    $subjectClassesRepository = new SubjectClasses();
 
     $existentClass = $classesRepository->where('code', $data['code'])->first();
 
@@ -29,6 +31,13 @@ class CreateClassesService {
     }
 
     $class = $classesRepository->create($data);
+
+    foreach($data['subjects'] as $subject) {
+      $subjectClassesRepository->create([
+        "subject_id" => $subject,
+        "class_id" => $class->id
+      ]);
+    }
     return $class;
 
   }

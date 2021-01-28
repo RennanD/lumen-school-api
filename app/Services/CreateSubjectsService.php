@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use App\Models\Subject;
-use App\Models\SubjectClasses;
 use Exception;
 
 class CreateSubjectsService {
@@ -13,7 +12,7 @@ class CreateSubjectsService {
   */
   public function run(array $data) {
     $subjectsRepository = new Subject();
-    $subjectClassesRepository = new SubjectClasses();
+
 
     $existentSubject = $subjectsRepository
       ->where('name', $data['name'])
@@ -27,12 +26,6 @@ class CreateSubjectsService {
       "name" => $data['name']
     ]);
 
-    foreach($data['classes'] as $class) {
-      $subjectClassesRepository->create([
-        "subject_id" => $subject->id,
-        "class_id" => $class
-      ]);
-    }
 
     return $subject;
 
