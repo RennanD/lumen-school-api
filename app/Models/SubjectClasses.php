@@ -34,22 +34,22 @@ class SubjectClasses extends Model
     'status' => 'active'
   ];
 
-  public function class() {
-    return $this->belongsToMany(
-      ClassModel::class,
-      'subject_classes',
-      'class_id',
-      'subject_id'
-    );
-  }
+  // public function class() {
+  //   return $this->belongsToMany(
+  //     ClassModel::class,
+  //     'subject_classes',
+  //     'class_id',
+  //     'subject_id'
+  //   );
+  // }
 
-  public function subject() {
-    return $this->hasMany(
-      Subject::class,
-      'subject_classes',
-      'subjetc_id',
-      'class_id'
-    );
-  }
+  // public function subject() {
+  //   return $this->hasMany(
+  //     Subject::class,
+  //     'subject_classes',
+  //     'subjetc_id',
+  //     'class_id'
+  //   );
+  // }
 
 }

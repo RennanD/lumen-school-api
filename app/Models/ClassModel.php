@@ -42,10 +42,10 @@ class ClassModel extends Model
 
   public function subjects() {
     return $this->belongsToMany(
-      ClassModel::class,
+      Subject::class,
       'subject_classes',
       'class_id',
-      'subject_id'
+      'subject_id',
     );
   }
 
